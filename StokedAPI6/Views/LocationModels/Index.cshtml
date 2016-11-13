@@ -74,7 +74,8 @@
             @Html.DisplayNameFor(model => model.BestWaveDirection)
         </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.FullName)
+            @*@Html.DisplayNameFor(model => model.FullName)*@
+            <p>Created by</p>
         </th>
         <th></th>
     </tr>
@@ -107,7 +108,7 @@
             @Html.DisplayFor(modelItem => item.showLocation)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreationDate)
+            @Html.DisplayFor(modelItem => item.CreationDate)    
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.SurfDifficulty)

@@ -29,18 +29,9 @@ namespace StokedAPI6.Repository
             return db.LocationModels.ToList();
         }
 
-        public void InsertOrUpdate(string CurrentUserId, LocationModel location)
+        public void InsertOrUpdate(String CurrentUserId, LocationModel location)
         {
-            //if(location.LocationId != 0)
-            //{
-            //    db.Entry(location).State = System.Data.Entity.EntityState.Modified;
-            //}
-            //else
-            //{
-            //    db.LocationModels.Add(location);
-            //}
-            //db.SaveChanges();
-
+           
             if (string.IsNullOrEmpty(location.FullName))
             {
 

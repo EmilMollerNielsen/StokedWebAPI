@@ -44,7 +44,7 @@ namespace StokedAPI6.Models
         public bool showLocation { get; set; }
 
         //Creation date
-        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime CreationDate { get; set; }
 
         //Difficulty

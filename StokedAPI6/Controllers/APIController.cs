@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StokedAPI6.Models;
+using StokedAPI6.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,31 +11,19 @@ namespace StokedAPI6.Controllers
 {
     public class APIController : ApiController
     {
-        // GET: api/API
-        public IEnumerable<string> Get()
+        private LocationRepository locationRepository;
+
+
+        public APIController()
         {
-            return new string[] { "value1", "value2" };
+            locationRepository = new LocationRepository();
         }
 
-        // GET: api/API/5
-        public string Get(int id)
+        public LocationModel[] Get()
         {
-            return "value";
-        }
+            LocationModel[] ReturnedLocations = locationRepository.GetAll().ToArray();
 
-        // POST: api/API
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/API/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/API/5
-        public void Delete(int id)
-        {
+            return ReturnedLocations;
         }
     }
 }
