@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 
 namespace StokedAPI6.Controllers
 {
@@ -19,11 +20,14 @@ namespace StokedAPI6.Controllers
             locationRepository = new LocationRepository();
         }
 
-        public LocationModel[] Get()
+        public string Get()
         {
-            LocationModel[] ReturnedLocations = locationRepository.GetAll().ToArray();
+            // retrive the data from table  
+            var locationlist = locationRepository.GetAll() as List<LocationModel>;
+            // Pass the "personlist" object for conversion object to JSON string  
+            string jsondata = new JavaScriptSerializer().Serialize(locationlist);
 
-            return ReturnedLocations;
+            return jsondata;
         }
     }
 }
