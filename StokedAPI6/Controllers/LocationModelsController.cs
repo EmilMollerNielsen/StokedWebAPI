@@ -104,7 +104,31 @@ namespace StokedAPI6.Controllers
             return View();
         }
 
-       
+      
+        
+        public ActionResult Delete(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (locationRepository.Find(id) == null)
+            {
+                return HttpNotFound();
+            }
+            return View(locationRepository.Find(id));
+        }
+
+        // POST: UserModels/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+
+            locationRepository.DeleteLocation(id);
+            return RedirectToAction("Index");
+        }
 
 
 

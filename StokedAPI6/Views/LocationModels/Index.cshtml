@@ -9,9 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<h3 style="color:red">@TempData["msg"]</h3>
-@using (Html.BeginForm())
-{
+
 <table class="table">
     <tr>
         <th>
@@ -143,12 +141,10 @@
             @Html.ActionLink("Delete", "Delete", new { id = item.LocationId })
         </td>
     </tr>
+
 }
-    <tr>
-        <th><input id="Button1" type="submit" class="btn btn-danger" value="Click here for JSON File" /></th>
-    </tr>
 
 
 </table>
 
-}
+

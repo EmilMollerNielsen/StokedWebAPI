@@ -9,9 +9,32 @@ namespace StokedAPI6.Models
     {
         //ID
         public int Id { get; set; }
-        
-        //JSON
-         
+
+        //Fra JSON
+
+        public string Type { get; set; }
+
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
+
+
+
+        public DateTime Date { get; set; }
+
+        //astronomy
+
+        public DateTime Sunrise { get; set; }
+
+        public DateTime Sunset { get; set; }
+
+        public DateTime Moonrise { get; set; }
+
+        public DateTime Moonset { get; set; }
+
+
+
+
 
     }
 }

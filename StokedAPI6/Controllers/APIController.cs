@@ -7,6 +7,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace StokedAPI6.Controllers
 {
@@ -14,20 +19,25 @@ namespace StokedAPI6.Controllers
     {
         private LocationRepository locationRepository;
 
-
+        
         public APIController()
         {
             locationRepository = new LocationRepository();
         }
 
-        public string Get()
+        public IEnumerable<LocationModel> Get()
         {
             // retrive the data from table  
-            var locationlist = locationRepository.GetAll() as List<LocationModel>;
-            // Pass the "personlist" object for conversion object to JSON string  
-            string jsondata = new JavaScriptSerializer().Serialize(locationlist);
-
-            return jsondata;
+            var locationlist = locationRepository.GetAll();
+            
+            return locationlist;
+            
         }
+
+        
     }
+
+   
 }
+
+
